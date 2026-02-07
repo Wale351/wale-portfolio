@@ -20,15 +20,15 @@ export default function HomePage() {
             MANAGING COMMUNITIES SINCE - Y:2021
           </p>
           <div className="relative flex items-center justify-center gap-0 text-[24vw] md:text-[18vw] leading-none font-heading font-extrabold tracking-tight text-text-primary">
-            <span className="inline-block text-accent-teal">WA</span>
+            <span className="-mr-[0.5vw] inline-block text-accent-teal">WA</span>
             <motion.img
               src="/Wale.PNG"
               alt="Wale mascot"
-              className="-mx-2 h-[24vw] w-[24vw] min-h-[170px] min-w-[170px] object-contain"
+              className="-mx-[1.2vw] h-[24vw] w-[24vw] min-h-[190px] min-w-[190px] object-contain"
               animate={{ y: [0, -3, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             />
-            <span className="inline-block text-accent-teal">LE</span>
+            <span className="-ml-[0.5vw] inline-block text-accent-teal">LE</span>
           </div>
           <Reveal delay={0.6}>
             <p className="text-lg md:text-xl text-text-secondary max-w-2xl leading-relaxed">
@@ -108,18 +108,18 @@ export default function HomePage() {
               viewport={{ once: true, amount: 0.6 }}
             />
           </div>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-8 md:grid-cols-2">
             {projects.map((project) => (
               <a
                 key={project.title}
                 href={project.href}
                 className="group relative aspect-[4/3] overflow-hidden bg-surfaceAlt"
               >
-                <div className="absolute inset-0 p-4">
+                <div className="absolute inset-0 p-6">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="h-full w-full rounded-lg object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                    className="h-full w-full rounded-lg object-cover transition-transform duration-500 ease-out group-hover:scale-[1.01]"
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-br from-[rgba(var(--accent-rgb),0.12)] to-[rgba(var(--bg-rgb),0.35)]" />
@@ -227,27 +227,33 @@ export default function HomePage() {
 
       {/* Contact */}
       <section id="contact" className="section">
-        <div className="container-max space-y-8 text-center">
-          <div className="space-y-3">
-            <h2 className="font-heading text-3xl text-text-primary">Let&apos;s build together.</h2>
-            <p className="text-text-secondary max-w-xl mx-auto">
-              Reach out for roles or consulting. Share your goals and I&apos;ll respond with a focused
-              plan.
-            </p>
+        <div className="container-max space-y-8">
+          <div className="flex items-center gap-4">
+            <h2 className="section-title">CONTACT</h2>
+            <motion.div
+              className="h-px bg-border flex-1"
+              variants={lineVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.6 }}
+            />
           </div>
-          <div className="flex flex-wrap gap-6 justify-center text-sm">
-            <a className="link-underline" href="https://x.com/socialsrising">
-              X
-            </a>
-            <a className="link-underline" href="https://www.linkedin.com/company/deentra?trk=profile-position">
-              LinkedIn
-            </a>
-            <a className="link-underline" href="https://discord.com/">
-              Discord
-            </a>
-            <a className="link-underline" href="https://t.me/">
-              Telegram
-            </a>
+          <div className="space-y-6">
+            <h3 className="font-heading text-2xl text-text-primary">Need a Community Lead? Let’s talk</h3>
+            <div className="flex flex-wrap gap-6 text-sm">
+              <a className="link-underline" href="https://x.com/wale246?s=21">
+                X
+              </a>
+              <a className="link-underline" href="https://t.me/Wale_351">
+                Telegram
+              </a>
+              <a className="link-underline" href="discord://-/users/956190502607290419">
+                Discord
+              </a>
+              <a className="link-underline" href="mailto:real0xwale@gmail.com">
+                Email
+              </a>
+            </div>
           </div>
         </div>
       </section>

@@ -29,7 +29,7 @@ export function Header() {
   }, [theme]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-[rgba(var(--bg-rgb),0.96)]">
+    <header className="fixed inset-x-0 top-0 z-50 bg-bg border-b border-border">
       <div className="mx-auto flex items-center justify-between px-6 py-5">
       {/* Hamburger */}
       <div className="relative">
