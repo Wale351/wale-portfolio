@@ -81,12 +81,42 @@ export const experience = [
 ];
 
 export const projects = [
-  { title: "Launch Hub", href: "#", tag: "Community", placeholder: true },
-  { title: "Gov Flow", href: "#", tag: "Governance", placeholder: true },
-  { title: "Creator Labs", href: "#", tag: "Programs", placeholder: true },
-  { title: "Signal Desk", href: "#", tag: "Support", placeholder: true },
-  { title: "Pulse Reports", href: "#", tag: "Analytics", placeholder: true },
-  { title: "Events Engine", href: "#", tag: "Engagement", placeholder: true }
+  {
+    title: "Socials Rising",
+    href: "https://x.com/socialsrising",
+    tag: "Community",
+    image: "/project-1-socials-rising.png"
+  },
+  {
+    title: "Deentra",
+    href: "https://www.linkedin.com/company/deentra?trk=profile-position",
+    tag: "Operations",
+    image: "/project-2-deentra.jpg"
+  },
+  {
+    title: "Community Gaming",
+    href: "https://x.com/forkast",
+    tag: "Esports",
+    image: "/project-3-community-gaming.jpg"
+  },
+  {
+    title: "Melaxy",
+    href: "https://x.com/melaxygame",
+    tag: "Gaming",
+    image: "/project-4-melaxy.jpg"
+  },
+  {
+    title: "KeplerHomes",
+    href: "https://x.com/keplerhomes",
+    tag: "Real Estate",
+    image: "/project-5-keplerhomes.jpg"
+  },
+  {
+    title: "Red Door Digital",
+    href: "https://www.linkedin.com/company/red-door-digital?trk=profile-position",
+    tag: "Digital",
+    image: "/project-6-red-door-digital.jpg"
+  }
 ];
 
 export const caseStudies = [

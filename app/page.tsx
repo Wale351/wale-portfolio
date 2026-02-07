@@ -14,20 +14,21 @@ export default function HomePage() {
   return (
     <main id="main" className="relative">
       {/* Hero */}
-      <section id="home" className="section pt-36 md:pt-44">
+      <section id="home" className="section pt-32 md:pt-40">
         <div className="container-max flex flex-col items-center gap-10 text-center">
           <p className="text-xs tracking-[0.3em] text-text-muted uppercase">
             MANAGING COMMUNITIES SINCE - Y:2021
           </p>
-          <div className="relative group">
-            <h1 className="relative text-[24vw] md:text-[18vw] leading-none font-heading font-extrabold tracking-tight text-text-primary">
-              WALE
-            </h1>
-            <img
+          <div className="relative flex items-center justify-center gap-0 text-[24vw] md:text-[18vw] leading-none font-heading font-extrabold tracking-tight text-text-primary">
+            <span className="inline-block text-accent-teal">WA</span>
+            <motion.img
               src="/Wale.PNG"
               alt="Wale mascot"
-              className="absolute left-1/2 top-1/2 h-[18vw] w-[18vw] min-h-[150px] min-w-[150px] -translate-x-1/2 -translate-y-1/2 object-contain transition-transform duration-700 ease-out group-hover:-translate-y-[52%] group-hover:translate-x-[2%] group-hover:rotate-1"
+              className="-mx-2 h-[18vw] w-[18vw] min-h-[150px] min-w-[150px] object-contain"
+              animate={{ y: [0, -3, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             />
+            <span className="inline-block text-accent-teal">LE</span>
           </div>
           <Reveal delay={0.6}>
             <p className="text-lg md:text-xl text-text-secondary max-w-2xl leading-relaxed">
@@ -114,10 +115,12 @@ export default function HomePage() {
                 href={project.href}
                 className="group relative aspect-[4/3] overflow-hidden bg-surfaceAlt"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-[rgba(var(--accent-rgb),0.15)] to-surface transition-transform duration-500 ease-out group-hover:scale-[1.03]" />
-                <div className="absolute inset-0 flex items-center justify-center text-text-muted font-mono text-sm">
-                  Placeholder
-                </div>
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-[rgba(var(--accent-rgb),0.12)] to-[rgba(var(--bg-rgb),0.35)]" />
                 <div className="absolute inset-0 flex items-end">
                   <div className="w-full translate-y-6 bg-[rgba(var(--bg-rgb),0.88)] px-4 py-3 opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
                     <p className="text-sm font-heading text-text-primary">{project.title}</p>
