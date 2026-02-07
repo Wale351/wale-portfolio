@@ -1,11 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Button } from "@/components/Button";
 import { Reveal } from "@/components/Reveal";
-import { Tag } from "@/components/Tag";
-import { experience, projects, skills, strengths, tools } from "@/data/site";
+import { experience, projects, skills, tools } from "@/data/site";
 
 const lineVariant = {
   hidden: { width: 0 },
@@ -13,37 +11,30 @@ const lineVariant = {
 };
 
 export default function HomePage() {
-  const [activeProject, setActiveProject] = useState<string | null>(null);
-
   return (
     <main id="main" className="relative">
       {/* Hero */}
-      <section id="home" className="section">
+      <section id="home" className="section pt-36 md:pt-44">
         <div className="container-max flex flex-col items-center gap-10 text-center">
           <p className="text-xs tracking-[0.3em] text-text-muted uppercase">
             MANAGING COMMUNITIES SINCE - Y:2021
           </p>
-          <div className="relative flex items-center justify-center">
-            <div className="flex items-center gap-0 text-[18vw] leading-none font-heading font-extrabold tracking-tight text-text-primary">
-              <span className="inline-block text-accent-teal drop-shadow-[0_0_25px_rgba(var(--accent-rgb),0.35)]">
-                WA
-              </span>
-              <div className="-mx-2 h-[18vw] w-[18vw] min-h-[160px] min-w-[160px] flex items-center justify-center overflow-visible">
-                <img
-                  src="/Wale.PNG"
-                  alt="Wale mascot"
-                  className="block h-full w-full object-contain object-center"
-                />
-              </div>
-              <span className="inline-block text-accent-teal drop-shadow-[0_0_25px_rgba(var(--accent-rgb),0.35)]">
-                LE
-              </span>
-            </div>
+          <div className="relative group">
+            <h1 className="relative text-[24vw] md:text-[18vw] leading-none font-heading font-extrabold tracking-tight text-text-primary">
+              WALE
+            </h1>
+            <img
+              src="/Wale.PNG"
+              alt="Wale mascot"
+              className="absolute left-1/2 top-1/2 h-[18vw] w-[18vw] min-h-[150px] min-w-[150px] -translate-x-1/2 -translate-y-1/2 object-contain transition-transform duration-700 ease-out group-hover:-translate-y-[52%] group-hover:translate-x-[2%] group-hover:rotate-1"
+            />
           </div>
-          <p className="text-lg text-text-secondary max-w-2xl">
-            I’m Wale, a Community Lead with 4 years of experience creating safe, engaging, and
-            well-managed online spaces.
-          </p>
+          <Reveal delay={0.6}>
+            <p className="text-lg md:text-xl text-text-secondary max-w-2xl leading-relaxed">
+              I’m Wale, a Community Lead with 4 years of experience creating safe, engaging, and
+              well-managed online spaces.
+            </p>
+          </Reveal>
         </div>
       </section>
 
@@ -60,15 +51,15 @@ export default function HomePage() {
               viewport={{ once: true, amount: 0.6 }}
             />
           </div>
-          <div className="grid gap-8 md:grid-cols-2 text-text-secondary">
-            <p>
-              A community lead with 4yrs+ of hands-on experience growing active, engaged
-              communities. I&apos;ve managed teams, hosted events, and kept things running smoothly across
-              different platforms. I&apos;m big on clear communication, staying organized and making sure
-              members actually enjoy being part of the space. I like building communities that feel
+          <div className="grid gap-12 md:grid-cols-2 text-text-secondary">
+            <p className="text-base md:text-lg leading-relaxed">
+              A community lead with 4yrs+ of hands-on experience growing active, engaged communities.
+              I&apos;ve managed teams, hosted events, and kept things running smoothly across different
+              platforms. I&apos;m big on clear communication, staying organized and making sure members
+              actually enjoy being part of the space. I like building communities that feel
               welcoming and fun.
             </p>
-            <div className="space-y-4">
+            <div className="divide-y divide-border">
               {[
                 {
                   title: "Discord",
@@ -86,17 +77,13 @@ export default function HomePage() {
                   stat: "89%"
                 }
               ].map((item) => (
-                <div
-                  key={item.title}
-                  className="relative overflow-hidden rounded-2xl border border-border bg-surface px-5 py-4 shadow-[0_12px_30px_rgba(0,0,0,0.18)] transition-transform duration-200 hover:-translate-y-1 hover:border-[color:rgba(var(--accent-rgb),0.4)]"
-                >
-                  <div className="absolute left-0 top-0 h-full w-1 bg-[rgba(var(--accent-rgb),0.7)]" />
-                  <div className="flex items-start justify-between gap-4">
+                <div key={item.title} className="py-6">
+                  <div className="flex items-start justify-between gap-6">
                     <div className="space-y-2">
                       <p className="font-heading text-base text-text-primary">{item.title}</p>
-                      <p className="text-xs text-text-secondary">{item.desc}</p>
+                      <p className="text-sm text-text-secondary leading-relaxed">{item.desc}</p>
                     </div>
-                    <span className="shrink-0 rounded-full border border-[color:rgba(var(--accent-rgb),0.3)] bg-[rgba(var(--accent-rgb),0.12)] px-3 py-1 text-xs font-semibold text-accent-teal">
+                    <span className="shrink-0 text-sm font-semibold text-accent-teal">
                       {item.stat}
                     </span>
                   </div>
@@ -120,39 +107,24 @@ export default function HomePage() {
               viewport={{ once: true, amount: 0.6 }}
             />
           </div>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2">
             {projects.map((project) => (
-              <motion.div
+              <a
                 key={project.title}
-                className="relative aspect-[4/3] rounded-2xl border border-border bg-surfaceAlt overflow-hidden cursor-pointer"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                animate={{ scale: activeProject === project.title ? 1.04 : 1 }}
-                onClick={() => setActiveProject(activeProject === project.title ? null : project.title)}
+                href={project.href}
+                className="group relative aspect-[4/3] overflow-hidden bg-surfaceAlt"
               >
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-[rgba(var(--accent-rgb),0.15)] to-surface"
-                  initial={{ opacity: 0.8 }}
-                  animate={{ opacity: activeProject === project.title ? 1 : 0.8 }}
-                  transition={{ duration: 0.3 }}
-                />
+                <div className="absolute inset-0 bg-gradient-to-br from-[rgba(var(--accent-rgb),0.15)] to-surface transition-transform duration-500 ease-out group-hover:scale-[1.03]" />
                 <div className="absolute inset-0 flex items-center justify-center text-text-muted font-mono text-sm">
                   Placeholder
                 </div>
-                <AnimatePresence>
-                  {activeProject === project.title && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 12 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 12 }}
-                      className="absolute bottom-0 left-0 right-0 bg-surface backdrop-blur border-t border-border px-4 py-3"
-                    >
-                      <p className="text-sm font-heading text-text-primary">{project.title}</p>
-                      <p className="text-xs text-text-secondary">{project.tag}</p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
+                <div className="absolute inset-0 flex items-end">
+                  <div className="w-full translate-y-6 bg-[rgba(var(--bg-rgb),0.88)] px-4 py-3 opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
+                    <p className="text-sm font-heading text-text-primary">{project.title}</p>
+                    <p className="text-xs text-text-secondary">{project.tag}</p>
+                  </div>
+                </div>
+              </a>
             ))}
           </div>
         </div>
@@ -171,16 +143,19 @@ export default function HomePage() {
               viewport={{ once: true, amount: 0.6 }}
             />
           </div>
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="divide-y divide-border">
             {experience.map((item) => (
-              <div key={`${item.company}-${item.title}`} className="space-y-3">
-                <div>
-                  <h3 className="font-heading text-xl text-text-primary">{item.title}</h3>
-                  <p className="text-sm text-text-secondary">{item.company}</p>
+              <div key={`${item.company}-${item.title}`} className="py-8">
+                <div className="flex flex-col gap-3 md:flex-row md:items-baseline md:justify-between">
+                  <div>
+                    <h3 className="font-heading text-2xl text-text-primary">{item.title}</h3>
+                    <p className="text-sm text-text-secondary">{item.company}</p>
+                  </div>
                   <p className="text-sm text-text-muted">{item.duration}</p>
                 </div>
-                <p className="text-text-secondary text-sm leading-relaxed">{item.summary}</p>
-                <div className="h-px w-full bg-border/70" />
+                <p className="mt-4 text-text-secondary text-base leading-relaxed max-w-3xl">
+                  {item.summary}
+                </p>
               </div>
             ))}
           </div>
@@ -189,18 +164,19 @@ export default function HomePage() {
 
       {/* Stats */}
       <section className="section">
-        <div className="container-max grid gap-6 md:grid-cols-3 text-center">
-          {[
-            { label: "Daily active moderation", value: "8+ hrs" },
-            { label: "Response time", value: "2 Mins" },
-            { label: "Positive feedback rate", value: "100%" }
-          ].map((stat) => (
-            <div key={stat.label} className="space-y-2">
-              <div className="h-px w-full bg-border/70" />
-              <p className="text-2xl font-heading text-text-primary">{stat.value}</p>
-              <p className="text-sm text-text-secondary">{stat.label}</p>
-            </div>
-          ))}
+        <div className="container-max">
+          <div className="grid gap-6 md:grid-cols-3 text-left divide-y divide-border md:divide-y-0 md:divide-x">
+            {[
+              { label: "Daily active moderation", value: "8+ hrs" },
+              { label: "Response time", value: "2 Mins" },
+              { label: "Positive feedback rate", value: "100%" }
+            ].map((stat) => (
+              <div key={stat.label} className="py-6 md:px-6 md:py-0">
+                <p className="text-3xl md:text-4xl font-heading text-text-primary">{stat.value}</p>
+                <p className="mt-2 text-sm text-text-secondary">{stat.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -217,24 +193,28 @@ export default function HomePage() {
               viewport={{ once: true, amount: 0.6 }}
             />
           </div>
-          <div className="grid gap-6 md:grid-cols-2">
-            <div className="rounded-2xl border border-border bg-surface p-6 shadow-[0_14px_35px_rgba(0,0,0,0.18)]">
+          <div className="grid gap-10 md:grid-cols-2">
+            <div>
               <p className="text-xs uppercase tracking-[0.3em] text-text-muted">Capabilities</p>
-              <h3 className="mt-2 font-heading text-lg text-text-primary">Community Strengths</h3>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {strengths.map((item) => (
-                  <Tag key={item.title}>{item.title}</Tag>
+              <h3 className="mt-3 font-heading text-2xl text-text-primary">Community Strengths</h3>
+              <ul className="mt-6 space-y-3 text-sm text-text-secondary">
+                {skills.map((item) => (
+                  <li key={item} className="border-b border-border pb-3">
+                    {item}
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
-            <div className="rounded-2xl border border-border bg-surface p-6 shadow-[0_14px_35px_rgba(0,0,0,0.18)]">
-              <p className="text-xs uppercase tracking-[0.3em] text-text-muted">Tooling</p>
-              <h3 className="mt-2 font-heading text-lg text-text-primary">Platforms & Bots</h3>
-              <div className="mt-4 flex flex-wrap gap-2">
+            <div>
+              <p className="text-xs uppercase tracking-[0.3em] text-text-muted">Tools</p>
+              <h3 className="mt-3 font-heading text-2xl text-text-primary">Platforms & Bots</h3>
+              <ul className="mt-6 space-y-3 text-sm text-text-secondary">
                 {tools.map((tool) => (
-                  <Tag key={tool}>{tool}</Tag>
+                  <li key={tool} className="border-b border-border pb-3">
+                    {tool}
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </div>
         </div>

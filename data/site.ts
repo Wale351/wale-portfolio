@@ -37,13 +37,6 @@ export const metrics = [
 
 export const experience = [
   {
-    title: "Community Moderator",
-    company: "Community Gaming",
-    duration: "Part-time · Oct 2024 – Mar 2025",
-    summary:
-      "Moderated an esports-focused community with a focus on engagement and accuracy. Researched tournaments and shared timely, reliable updates. Supported daily moderation to keep discussions relevant and respectful. Managed spam, rule violations, and off-topic conversations. Engaged directly with members during events and discussions. Maintained a structured, informative environment for competitive gaming audiences."
-  },
-  {
     title: "Head of Community",
     company: "Socials Rising",
     duration: "Full-time · Oct 2023 – Present",
@@ -56,6 +49,13 @@ export const experience = [
     duration: "Aug 2022 – Present",
     summary:
       "Managed community operations remotely to support long-term growth and engagement. Served as a bridge between the project and its users by handling questions and feedback. Oversaw moderation to keep conversations productive and safe. Helped members navigate products and resolve issues. Organized initiatives to improve retention and participation. Refined workflows and internal community processes over time."
+  },
+  {
+    title: "Community Moderator",
+    company: "Community Gaming",
+    duration: "Part-time · Oct 2024 – Mar 2025",
+    summary:
+      "Moderated an esports-focused community with a focus on engagement and accuracy. Researched tournaments and shared timely, reliable updates. Supported daily moderation to keep discussions relevant and respectful. Managed spam, rule violations, and off-topic conversations. Engaged directly with members during events and discussions. Maintained a structured, informative environment for competitive gaming audiences."
   },
   {
     title: "Community Moderator",

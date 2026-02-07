@@ -8,9 +8,13 @@
   color-scheme: dark;
   --font-heading: "Satoshi";
   --bg: #0a120f;
+  --bg-rgb: 10 18 15;
   --surface: #111b17;
+  --surface-rgb: 17 27 23;
   --surface-alt: #0f1713;
+  --surface-alt-rgb: 15 23 19;
   --border: #1e2d26;
+  --border-rgb: 30 45 38;
   --text-primary: #edf5f0;
   --text-secondary: #c0ccc6;
   --text-muted: #94a39b;
@@ -28,15 +32,19 @@ html {
 
 body {
   @apply bg-bg text-text-primary font-body antialiased;
-  line-height: 1.6;
+  line-height: 1.75;
 }
 
 .light {
   color-scheme: light;
   --bg: #f3f6fb;
+  --bg-rgb: 243 246 251;
   --surface: #ffffff;
+  --surface-rgb: 255 255 255;
   --surface-alt: #eef3fb;
+  --surface-alt-rgb: 238 243 251;
   --border: #dbe3f0;
+  --border-rgb: 219 227 240;
   --text-primary: #0b1220;
   --text-secondary: #3d4c62;
   --text-muted: #6b7a90;
@@ -58,11 +66,11 @@ body {
 }
 
 .section {
-  @apply py-20 md:py-28;
+  @apply py-28 md:py-40;
 }
 
 .section-title {
-  @apply font-heading text-3xl md:text-4xl tracking-tight;
+  @apply font-heading text-4xl md:text-5xl tracking-tight;
 }
 
 .section-subtitle {
