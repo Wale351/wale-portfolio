@@ -44,7 +44,7 @@ export const experience = [
       "Led community strategy and execution across platforms with a focus on sustainable growth. Built onboarding, moderation, and daily ops systems to keep the community high-signal. Hosted game nights two to four times per week to drive consistent participation. Designed and built two NFT-related games used for holder engagement and education. Automated workflows to reduce manual work and improve efficiency. Partnered with internal teams to align community feedback with product and brand goals. Ran ongoing research to refine engagement strategies and improve the community experience."
   },
   {
-    title: "Remote Community Manager",
+    title: "Community Manager",
     company: "Deentra",
     duration: "Aug 2022 – Present",
     summary:

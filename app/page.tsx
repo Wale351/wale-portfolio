@@ -24,7 +24,7 @@ export default function HomePage() {
             <motion.img
               src="/Wale.PNG"
               alt="Wale mascot"
-              className="-mx-2 h-[18vw] w-[18vw] min-h-[150px] min-w-[150px] object-contain"
+              className="-mx-2 h-[24vw] w-[24vw] min-h-[170px] min-w-[170px] object-contain"
               animate={{ y: [0, -3, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             />
@@ -115,11 +115,13 @@ export default function HomePage() {
                 href={project.href}
                 className="group relative aspect-[4/3] overflow-hidden bg-surfaceAlt"
               >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
-                />
+                <div className="absolute inset-0 p-4">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="h-full w-full rounded-lg object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                  />
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-br from-[rgba(var(--accent-rgb),0.12)] to-[rgba(var(--bg-rgb),0.35)]" />
                 <div className="absolute inset-0 flex items-end">
                   <div className="w-full translate-y-6 bg-[rgba(var(--bg-rgb),0.88)] px-4 py-3 opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
@@ -225,17 +227,27 @@ export default function HomePage() {
 
       {/* Contact */}
       <section id="contact" className="section">
-        <div className="container-max flex flex-col items-center gap-4 text-center">
-          <h2 className="font-heading text-3xl text-text-primary">Let&apos;s build together.</h2>
-          <p className="text-text-secondary max-w-xl">
-            Reach out for roles or consulting. Share your goals and I&apos;ll respond with a focused
-            plan.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Button href="mailto:hello@alexrivera.xyz">Email me</Button>
-            <Button href="#projects" variant="secondary">
-              View projects
-            </Button>
+        <div className="container-max space-y-8 text-center">
+          <div className="space-y-3">
+            <h2 className="font-heading text-3xl text-text-primary">Let&apos;s build together.</h2>
+            <p className="text-text-secondary max-w-xl mx-auto">
+              Reach out for roles or consulting. Share your goals and I&apos;ll respond with a focused
+              plan.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-6 justify-center text-sm">
+            <a className="link-underline" href="https://x.com/socialsrising">
+              X
+            </a>
+            <a className="link-underline" href="https://www.linkedin.com/company/deentra?trk=profile-position">
+              LinkedIn
+            </a>
+            <a className="link-underline" href="https://discord.com/">
+              Discord
+            </a>
+            <a className="link-underline" href="https://t.me/">
+              Telegram
+            </a>
           </div>
         </div>
       </section>
