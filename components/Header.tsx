@@ -16,7 +16,6 @@ const links = [
 export function Header() {
   const [open, setOpen] = useState(false);
   const [theme, setTheme] = useState<"dark" | "light">("dark");
-  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -29,21 +28,14 @@ export function Header() {
     }
   }, [theme]);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
-      <div className="mx-auto flex items-center justify-between px-6 py-4">
+    <header className="fixed inset-x-0 top-0 z-50 bg-bg border-b border-border">
+      <div className="mx-auto flex items-center justify-between px-6 py-5">
       {/* Hamburger */}
       <div className="relative">
         <button
           aria-label="Open navigation"
-          className="group flex h-11 w-11 items-center justify-center rounded-full border border-border bg-bg/90 backdrop-blur text-text-primary transition-all hover:border-[color:rgba(var(--accent-rgb),0.35)]"
+          className="group flex h-11 w-11 items-center justify-center rounded-full border border-border bg-[rgba(var(--bg-rgb),0.95)] text-text-primary transition-all hover:border-[color:rgba(var(--accent-rgb),0.35)]"
           onClick={() => setOpen((v) => !v)}
         >
           <div className="space-y-1.5">
@@ -59,7 +51,7 @@ export function Header() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -6 }}
               transition={{ duration: 0.2 }}
-              className="absolute left-0 mt-3 w-48 rounded-2xl border border-border bg-bg/95 backdrop-blur overflow-hidden"
+              className="absolute left-0 mt-3 w-48 rounded-2xl border border-border bg-[rgba(var(--bg-rgb),0.98)] overflow-hidden"
             >
               <ul className="py-2 text-sm">
                 {links.map((link) => (
@@ -83,9 +75,8 @@ export function Header() {
       <motion.div className="font-heading text-4xl md:text-5xl">
         <motion.span
           className="inline-block"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: scrolled ? 1 : 0.6 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          animate={{ y: [0, -3, 0], opacity: [0.7, 1, 0.8] }}
+          transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
         >
           W
         </motion.span>
@@ -94,7 +85,7 @@ export function Header() {
       {/* Theme toggle */}
       <button
         aria-label="Toggle theme"
-        className="relative flex h-10 w-14 items-center rounded-full border border-border bg-bg/90 backdrop-blur px-1"
+        className="relative flex h-10 w-14 items-center rounded-full border border-border bg-[rgba(var(--bg-rgb),0.95)] px-1"
         onClick={() => setTheme((t) => (t === "dark" ? "light" : "dark"))}
       >
         <motion.div
@@ -105,6 +96,7 @@ export function Header() {
         />
       </button>
       </div>
+      <div className="h-px w-full bg-border" />
     </header>
   );
 }

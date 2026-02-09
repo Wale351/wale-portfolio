@@ -14,27 +14,23 @@ export default function HomePage() {
   return (
     <main id="main" className="relative">
       {/* Hero */}
-      <section id="home" className="section pt-24 md:pt-32">
-        <div className="container-max flex flex-col items-center gap-8 text-center">
+      <section id="home" className="section pt-32 md:pt-40">
+        <div className="container-max flex flex-col items-center gap-10 text-center">
           <p className="text-xs tracking-[0.3em] text-text-muted uppercase">
-            MANAGING COMMUNITIES SINCE – Y:2021
+            MANAGING COMMUNITIES SINCE - Y:2021
           </p>
-          <div className="flex flex-col items-center gap-4 md:flex-row md:gap-0 md:text-left">
-            <span className="text-accent-teal text-[clamp(3.5rem,18vw,10rem)] leading-none font-heading font-extrabold tracking-tight">
-              WA
-            </span>
+          <div className="relative flex items-center justify-center gap-0 text-[24vw] md:text-[18vw] leading-none font-heading font-extrabold tracking-tight text-text-primary">
+            <span className="-mr-[0.5vw] inline-block text-accent-teal">WA</span>
             <motion.img
               src="/Wale.PNG"
               alt="Wale mascot"
-              className="h-[clamp(3.5rem,18vw,10rem)] w-[clamp(3.5rem,18vw,10rem)] object-contain"
-              whileHover={{ y: -6, scale: 1.02 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
+              className="-mx-[1.2vw] h-[24vw] w-[24vw] min-h-[190px] min-w-[190px] object-contain"
+              animate={{ y: [0, -3, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             />
-            <span className="text-accent-teal text-[clamp(3.5rem,18vw,10rem)] leading-none font-heading font-extrabold tracking-tight">
-              LE
-            </span>
+            <span className="-ml-[0.5vw] inline-block text-accent-teal">LE</span>
           </div>
-          <Reveal delay={0.4}>
+          <Reveal delay={0.6}>
             <p className="text-lg md:text-xl text-text-secondary max-w-2xl leading-relaxed">
               I’m Wale, a Community Lead with 4 years of experience creating safe, engaging, and
               well-managed online spaces.
@@ -112,18 +108,18 @@ export default function HomePage() {
               viewport={{ once: true, amount: 0.6 }}
             />
           </div>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-2">
             {projects.map((project) => (
               <a
                 key={project.title}
                 href={project.href}
                 className="group relative aspect-[4/3] overflow-hidden bg-surfaceAlt"
               >
-                <div className="absolute inset-0 p-5">
+                <div className="absolute inset-0 p-6">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="h-full w-full rounded-lg object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                    className="h-full w-full rounded-lg object-cover transition-transform duration-500 ease-out group-hover:scale-[1.01]"
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-br from-[rgba(var(--accent-rgb),0.12)] to-[rgba(var(--bg-rgb),0.35)]" />
@@ -152,9 +148,9 @@ export default function HomePage() {
               viewport={{ once: true, amount: 0.6 }}
             />
           </div>
-          <div className="grid gap-8 md:grid-cols-2 divide-y divide-border md:divide-y-0">
+          <div className="divide-y divide-border">
             {experience.map((item) => (
-              <div key={`${item.company}-${item.title}`} className="py-6 border-b border-border/70 md:border-b-0">
+              <div key={`${item.company}-${item.title}`} className="py-8">
                 <div className="flex flex-col gap-3 md:flex-row md:items-baseline md:justify-between">
                   <div>
                     <h3 className="font-heading text-2xl text-text-primary">{item.title}</h3>
@@ -206,34 +202,24 @@ export default function HomePage() {
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-text-muted">Capabilities</p>
               <h3 className="mt-3 font-heading text-2xl text-text-primary">Community Strengths</h3>
-              <div className="mt-6 space-y-3 text-sm text-text-secondary">
-                {skills.reduce<string[][]>((rows, item, index) => {
-                  if (index % 2 === 0) rows.push([item]);
-                  else rows[rows.length - 1].push(item);
-                  return rows;
-                }, []).map((row, idx) => (
-                  <div key={`cap-${idx}`} className="grid grid-cols-2 gap-4 border-b border-border pb-3">
-                    <span>{row[0]}</span>
-                    <span>{row[1] ?? ""}</span>
-                  </div>
+              <ul className="mt-6 space-y-3 text-sm text-text-secondary">
+                {skills.map((item) => (
+                  <li key={item} className="border-b border-border pb-3">
+                    {item}
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-text-muted">Tools</p>
               <h3 className="mt-3 font-heading text-2xl text-text-primary">Platforms & Bots</h3>
-              <div className="mt-6 space-y-3 text-sm text-text-secondary">
-                {tools.reduce<string[][]>((rows, item, index) => {
-                  if (index % 2 === 0) rows.push([item]);
-                  else rows[rows.length - 1].push(item);
-                  return rows;
-                }, []).map((row, idx) => (
-                  <div key={`tool-${idx}`} className="grid grid-cols-2 gap-4 border-b border-border pb-3">
-                    <span>{row[0]}</span>
-                    <span>{row[1] ?? ""}</span>
-                  </div>
+              <ul className="mt-6 space-y-3 text-sm text-text-secondary">
+                {tools.map((tool) => (
+                  <li key={tool} className="border-b border-border pb-3">
+                    {tool}
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           </div>
         </div>
