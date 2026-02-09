@@ -167,14 +167,15 @@ export const skills = [
 ];
 
 export const tools = [
-  "Discord",
-  "Discourse",
-  "Snapshot",
-  "Notion",
+  "Discord server & bot set up",
+  "Telegram channel and bot creation set up",
   "Dune",
   "Zealy",
-  "Airtable",
-  "Figma"
+  "Zapier",
+  "n8n",
+  "AppScript",
+  "Google Sheet & Doc",
+  "Notion"
 ];
 
 export const nav = [
